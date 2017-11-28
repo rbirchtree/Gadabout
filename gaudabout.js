@@ -44,7 +44,7 @@ function callMeetUPAPI(city, interests){
     dataType: 'jsonp',
     url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${interests}&lon=${coords[1]}&radius=10&page=3&key=434519614563187d65466f42b4e6b74`,
     success: function(meetupData){
-      $("#results").html('<ul><li>' + meetupData.results[0].name +'</li><li>' + meetupData.results[1].name + '</li></ul>');
+      $("#results").html('<ul><li>' + meetupData.results[0].name +' <a>' + meetupData.results[1].event_url +'</a></li><li>' + meetupData.results[1].name +' <a>' + meetupData.results[1].event_url + '</a></li></ul>');
       
       /*' append data list previous and next tab'*/
     }
