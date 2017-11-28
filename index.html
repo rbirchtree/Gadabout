@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Find Great Events on the Fly">
+    <meta name="keywords" contents="events,music,meet-up,game">
+    <meta name="author" content="Rob Birch">
+    <title>Gaudabout</title>
+    <link href="gaudabout.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+  <div id="currentLocationWeather">
+    Current Location's Weather
+  </div>
+    <div class="welcome">
+      <h1>Welcome to Gaudabout! <span class="subtext">  Find Great Events on the Fly</span></h1>
+    </div>
+    <form id="eventFinder">
+      <label for="usersInterest">What is interesting to you?</label>
+      <input placeholder="Programming, dancing, etc" type="text" id="usersInterest">
+      <label for="city">What city are you travelling to?</label>
+      <input placeholder="Boston, Denver, Pasadena" type="text" id="city">
+      <input type="submit">
+    </form>
+
+
+<div class="container">
+    <div class="hidden" id="results">
+      text results
+    </div>
+    
+    <div class="hidden" id="travelCityWeather">
+      travel City Weather
+    </div>
+</div>
+
+    
+    <!--form-->
+    <!--results-->
+    <!--weather-->
+    <!--footer-->
+    <!--jquery apis-->
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+    <script src="gaudabout.js"></script>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+
+
+h1{
+  color: #008080;
+  display: inline-block;
+  font-size: 1.4em;
+  width: 100%;
+}
+
+.subtext {
+  color: #7FFF00;
+  display: inline-block;
+  font-size: .5em;
+}
+
+.welcome{
+  text-align: center;
+  border: black solid 2px;
+  padding: 1%;
+  margin: 2% 25%;
+  width: 50%;
+  border-radius: 5px;
+}
+
+#results{
+  display: block;
+  text-align: left;
+  border: black solid 2px;
+  padding: 2%;
+  width:60%;
+  height:70px;
+  float:left;
+  margin: auto;
+  border-radius: 5px;
+}
+
+form{
+  margin: auto;
+  margin: 2% 2%;
+  width: 100%;
+  text-align: center;
+  font-size:.9em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.container {
+  height: 50%;
+  margin-top:30px;
+}
+
+#travelCityWeather{
+  display: block;
+  text-align: center;
+  border: black solid 2px;
+  padding: 2%;
+  margin: 0% 2% 2% 2%;
+  width:20%;
+  height: 90px;
+  float:left;
+  border-radius: 5px;
+}
+
+img{
+  width: 80%;
+  height:25%;
+  border-radius: 5px;
+}
+
+#currentLocationWeather{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  text-align: center;
+  border: black solid 2px;
+  padding: 1%;
+  margin: 5% 2% 2% 2%;
+  width:14%;
+  height: 120px;
+  float: right;
+  border-radius: 5px;
+  font-size: .7em;
+}
+
+
+#startAPIrequests{
+  margin: auto auto; 
+  width:100px;
+  display: block;
+}
+
+label{
+  display: block;
+  margin: 3px;
+}
+
+input{
+  margin: 3px;
+}
+
+/*
+at results greater than x results = 90% width
+moved travel city to top right
+overflow text
+push elements down?
+*/
+
+@media only screen and (max-width: 640px){
+  #travelCityWeather{
+    position: absolute;
+    top: 0;
+    right: 0%;
+    width: 12%;
+    height:120px;
+    padding: 1%;
+    word-wrap: break-word;
+    margin: 5% 2% 2% 2%;
+  }
+  
+  
+  
+  #results{
+  border: black solid 2px;
+  padding: 2%;
+  width:80%;
+  margin-left: 7%;
+  margin-right: 5%;
+  }
+  
+}
