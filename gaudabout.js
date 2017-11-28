@@ -1,5 +1,5 @@
 
-$(function(){ 'intialize function'
+$(function(){ 
   let cityPositions;
   navigator.geolocation.getCurrentPosition(function(position){
    cityPositions = [position.coords.latitude, position.coords.longitude];
@@ -15,18 +15,38 @@ $(function(){ 'intialize function'
     event.preventDefault();
     var location = $("#city").val();' replace spaces with forms'
     var interests = $("#usersInterest").val();
-    $("#results").removeClass("hidden")
-    $("#travelCityWeather").removeClass("hidden")
-    interests; /*api meetup call  434519614563187d65466f42b4e6b74*/
-    /*mlb schedule mostly mia*/
-    var cityForAPI = encodeURI(location);
+    $("#results").removeClass("hidden");
+    $("#travelCityWeather").removeClass("hidden");
+     /*api meetup call  434519614563187d65466f42b4e6b74*/
+    callMeetUPAPI(location,interests);
+    let cityForAPI = encodeURI(location);
     travelCityWeatherAPICall(cityForAPI);
-  });
-  
-  
-})
+  }); 
+});
 
-
+function callMeetUPAPI(city, interests){
+  latLon= {Austin: ["30.307182","-97.755996"],
+            Boston: ["42.33196","-71.020173"],
+            Miami:["25.775163","-80.208615"],
+            "Los Angeles":["34.0522","-118.2437"],
+            Dallas:["32.794176","-96.765503"],
+            Houston:["29.780472","-95.386342"],
+            "San Francisco":["37.727239","-123.032229"],
+            "San Jose":["37.296867","-121.819306"],
+            "Colorado Springs":["38.867255","-104.760749"],
+            Denver:["39.761849","-104.880625"]
+            };
+            /* names with lat and lon*/
+            let coords = latLon[city];
+  $.ajax({
+    method:'GET',
+    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${interests}&lon=${coords[1]}&radius=10&page=5`,
+    success: function(meetupData){
+      console.log(meetupData)
+      /*' append data list previous and next tab'*/
+    }
+  })
+}  
 
 function travelCityWeatherAPICall(city){
     $.ajax({
@@ -34,9 +54,8 @@ function travelCityWeatherAPICall(city){
       url: `https://api.openweathermap.org/data/2.5/weather?q=${city}&mode=json&units=imperial&appid=71dd692b6e018b9ef955bdbff87a0067`,
       success: function(weather_data){
         let image = weatherImages[weather_data.weather[0].description];
-        $("#travelCityWeather").html(`${image}`)
+        $("#travelCityWeather").html(`${image}`);
         $('#travelCityWeather').find('img').before(`<p>${decodeURI(city)}'s  weather</p>`);
-        
       }
     });
   }
@@ -48,8 +67,7 @@ function travelCityWeatherAPICall(city){
       url: `https://api.openweathermap.org/data/2.5/weather?lat=${positions[0]}&lon=${positions[1]}&mode=json&units=imperial&appid=71dd692b6e018b9ef955bdbff87a0067`,
       success: function(weather_data){
         let image = weatherImages[weather_data.weather[0].description];
-        console.log(weatherImages[weather_data.weather[0].description]+"hi")
-        $("#currentLocationWeather").html("<p>Current Weather Location</p>"+image)
+        $("#currentLocationWeather").html("<p>Current Weather Location</p>"+image);
         
 
       }
@@ -58,13 +76,10 @@ function travelCityWeatherAPICall(city){
  
 function formatDateForSportsAPI() {
     var today = new Date();
-    var date = String(today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate())
-    return date
+    var date = String(today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate());
+    return date;
 }
   
-/*`https://api.sportradar.us/mlb-t6/games/${formatDateForSportsAPI()}/schedule.json?api_key=ehnp54takzjxcgebm4uqrma9`,*/
-
-  'add api calls and append results after this'
 });
 
 const weatherImages = {

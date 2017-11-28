@@ -64,8 +64,8 @@ form{
 }
 
 img{
-  width: 80%;
-  height:25%;
+  width: 40%;
+  height:40%;
   border-radius: 5px;
 }
 
@@ -79,10 +79,8 @@ img{
   padding: 1%;
   margin: 5% 2% 2% 2%;
   width:14%;
-  height: 120px;
   float: right;
   border-radius: 5px;
-  font-size: .7em;
 }
 
 
