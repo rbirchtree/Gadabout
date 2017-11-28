@@ -25,24 +25,27 @@ $(function(){
 });
 
 function callMeetUPAPI(city, interests){
-  latLon= {Austin: ["30.307182","-97.755996"],
-            Boston: ["42.33196","-71.020173"],
-            Miami:["25.775163","-80.208615"],
-            "Los Angeles":["34.0522","-118.2437"],
-            Dallas:["32.794176","-96.765503"],
-            Houston:["29.780472","-95.386342"],
-            "San Francisco":["37.727239","-123.032229"],
-            "San Jose":["37.296867","-121.819306"],
-            "Colorado Springs":["38.867255","-104.760749"],
-            Denver:["39.761849","-104.880625"]
+  latLon= {AUSTIN: ["30.307182","-97.755996"],
+            BOSTON: ["42.33196","-71.020173"],
+            MIAMI:["25.775163","-80.208615"],
+            "LOS ANGELES":["34.0522","-118.2437"],
+            DALLAS:["32.794176","-96.765503"],
+            HOUSTON:["29.780472","-95.386342"],
+            "SAN FRANCISCO":["37.727239","-123.032229"],
+            "SAN JOSE":["37.296867","-121.819306"],
+            "COLORADO SPRINGS":["38.867255","-104.760749"],
+            DENVER:["39.761849","-104.880625"]
             };
             /* names with lat and lon*/
-            let coords = latLon[city];
+            let coords = latLon[city.toUpperCase()];
   $.ajax({
     method:'GET',
-    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${interests}&lon=${coords[1]}&radius=10&page=5`,
+    crossDomain: true,
+    dataType: 'jsonp',
+    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${interests}&lon=${coords[1]}&radius=10&page=3&key=434519614563187d65466f42b4e6b74`,
     success: function(meetupData){
-      console.log(meetupData)
+      $("#results").html('<ul><li>' + meetupData.results[0].name +'</li><li>' + meetupData.results[1].name + '</li></ul>');
+      
       /*' append data list previous and next tab'*/
     }
   })
@@ -52,6 +55,8 @@ function travelCityWeatherAPICall(city){
     $.ajax({
       method: 'GET',
       url: `https://api.openweathermap.org/data/2.5/weather?q=${city}&mode=json&units=imperial&appid=71dd692b6e018b9ef955bdbff87a0067`,
+      // crossDomain: true,
+      // dataType: 'jsonp',
       success: function(weather_data){
         let image = weatherImages[weather_data.weather[0].description];
         $("#travelCityWeather").html(`${image}`);
