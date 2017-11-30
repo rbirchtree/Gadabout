@@ -23,14 +23,13 @@ h1{
 }
 
 #results{
-  display: block;
+  display: inline-block;
   text-align: left;
   border: black solid 2px;
   padding: 2%;
-  width:60%;
-  height:70px;
+  width:70%;
   float:left;
-  margin: auto;
+  /* margin: 0% 5% 2% 5%;  */
   border-radius: 5px;
 }
 
@@ -52,13 +51,12 @@ form{
 }
 
 #travelCityWeather{
-  display: block;
+  display: inline-block;
   text-align: center;
   border: black solid 2px;
-  padding: 2%;
-  margin: 0% 2% 2% 2%;
-  width:20%;
-  height: 90px;
+  padding: 1%;
+  margin: 0% 3% 1% 5%; 
+  width:13%;
   float:left;
   border-radius: 5px;
 }
@@ -77,8 +75,8 @@ img{
   text-align: center;
   border: black solid 2px;
   padding: 1%;
-  margin: 5% 2% 2% 2%;
-  width:14%;
+  margin: 5% 2% 5.5% 2%;
+  width:13%;
   float: right;
   border-radius: 5px;
 }
@@ -111,14 +109,20 @@ push elements down?
     position: absolute;
     top: 0;
     right: 0%;
-    width: 12%;
-    height:120px;
+    width: 13%;
     padding: 1%;
     word-wrap: break-word;
     margin: 5% 2% 2% 2%;
   }
   
-  
+  input{
+  height: 30px;
+  margin-bottom: 10px;
+  }
+  .submitbtn{
+    display: block;
+    margin: auto;
+  }
   
   #results{
   border: black solid 2px;

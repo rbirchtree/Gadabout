@@ -6,10 +6,6 @@ $(function(){
    
    currentCityWeatherAPICall(cityPositions);
    
-  /*http://www.nelsoncountylife.com/weather_icons/day/sunny.jpg*/
-  /*http://png.clipart.me/graphics/thumbs/160/snowflakes-winter-frosty-snow-background_160742723.jpg*/
-   /*return weatherAPI(cityPositions);*/
-   /*look at current status for weather and append*/
    
   $("#eventFinder").submit(event => {
     event.preventDefault();
@@ -23,7 +19,7 @@ $(function(){
     travelCityWeatherAPICall(cityForAPI);
   }); 
 });
-
+/*bing map api?*/
 function callMeetUPAPI(city, interests){
   latLon= {AUSTIN: ["30.307182","-97.755996"],
             BOSTON: ["42.33196","-71.020173"],
@@ -44,11 +40,18 @@ function callMeetUPAPI(city, interests){
     dataType: 'jsonp',
     url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${interests}&lon=${coords[1]}&radius=10&page=3&key=434519614563187d65466f42b4e6b74`,
     success: function(meetupData){
-      $("#results").html('<ul><li>' + meetupData.results[0].name +' <a>' + meetupData.results[1].event_url +'</a></li><li>' + meetupData.results[1].name +' <a>' + meetupData.results[1].event_url + '</a></li></ul>');
-      
+      if(!meetupData.results) {
+        $("#results").html("<p>There are no results</p>");
+      } else {
+      $("#results").html('<p><a href="'+ meetupData.results[0].event_url +'">  ' + meetupData.results[0].name + '</a></p>');
+      }
+      /*each fix results*/
       /*' append data list previous and next tab'*/
-    }
-  })
+    },
+      error : function(){
+        $("#results").html("<p>There is an error with the Meetup API</p>");
+      }
+  });
 }  
 
 function travelCityWeatherAPICall(city){
@@ -79,11 +82,7 @@ function travelCityWeatherAPICall(city){
     });
   }
  
-function formatDateForSportsAPI() {
-    var today = new Date();
-    var date = String(today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate());
-    return date;
-}
+
   
 });
 
