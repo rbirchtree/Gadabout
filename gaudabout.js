@@ -14,9 +14,14 @@ $(function(){
     $("#results").removeClass("hidden");
     $("#travelCityWeather").removeClass("hidden");
      /*api meetup call  434519614563187d65466f42b4e6b74*/
+     $("container").html(`<ul class="hidden" id="results"></ul>`);
+
     callMeetUPAPI(location,interests);
     let cityForAPI = encodeURI(location);
     travelCityWeatherAPICall(cityForAPI);
+    $("#usersInterest").val("")
+    $("#city").val("");
+    $("#results").empty();
   }); 
 });
 /*bing map api?*/
@@ -38,12 +43,18 @@ function callMeetUPAPI(city, interests){
     method:'GET',
     crossDomain: true,
     dataType: 'jsonp',
-    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${interests}&lon=${coords[1]}&radius=10&page=3&key=434519614563187d65466f42b4e6b74`,
+    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${interests}&lon=${coords[1]}&radius=20&page=3&key=434519614563187d65466f42b4e6b74`,
     success: function(meetupData){
       if(!meetupData.results) {
         $("#results").html("<p>There are no results</p>");
       } else {
-      $("#results").html('<p><a href="'+ meetupData.results[0].event_url +'">  ' + meetupData.results[0].name + '</a></p>');
+      // $("#results").html('<p><a href="'+ meetupData.results[0].event_url +'">  ' + meetupData.results[0].name + '</a></p>');
+      /*iterate through objects up to 3*/ 
+      jQuery.each( meetupData.results, function( i ) {
+        $('#results').append(
+          `<li><a href=" ${meetupData.results[i].event_url}"> ${meetupData.results[i].name}</a> ${meetupTime(meetupData.results[i].time)}</li>`);
+          return (i < 6);
+      });
       }
       /*each fix results*/
       /*' append data list previous and next tab'*/
@@ -95,4 +106,6 @@ const weatherImages = {
     };
 
 
-
+function meetupTime(dataTime){
+  return new Date(dataTime);
+}
