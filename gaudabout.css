@@ -94,7 +94,7 @@ img{
   float: right;
   border-radius: 5px;
   font-size:.8em;
-  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 
