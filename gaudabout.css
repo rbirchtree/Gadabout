@@ -9,6 +9,12 @@ h1{
   width: 100%;
 }
 
+h2{
+  font-size: 1em;
+  text-align: center;
+  padding:0;
+}
+
 .subtext {
   color: #7FFF00;
   display: inline-block;
@@ -35,6 +41,7 @@ h1{
   border-radius: 5px;
   word-wrap: auto;
 }
+
 li{
   list-style: none;
 }
@@ -65,6 +72,7 @@ form{
   width:12%;
   float:left;
   border-radius: 5px;
+  font-size:.8em;
 }
 
 img{
@@ -81,10 +89,12 @@ img{
   text-align: center;
   border: black solid 2px;
   padding: 1%;
-  margin: 5% 2% 5.5% 2%;
-  width:13%;
+  margin: 5% 2% 2% 2%;
+  width:14%;
   float: right;
   border-radius: 5px;
+  font-size:.8em;
+  overflow-wrap: break-word;
 }
 
 

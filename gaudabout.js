@@ -37,7 +37,7 @@ function callMeetUPAPI(city, interests){
             "COLORADO SPRINGS":["38.867255","-104.760749"],
             DENVER:["39.761849","-104.880625"]
             };
-            /* names with lat and lon*/
+            /* names with lat and lon get a translator*/
             let coords = latLon[city.toUpperCase()];
   $.ajax({
     method:'GET',
@@ -50,6 +50,7 @@ function callMeetUPAPI(city, interests){
       } else {
       // $("#results").html('<p><a href="'+ meetupData.results[0].event_url +'">  ' + meetupData.results[0].name + '</a></p>');
       /*iterate through objects up to 3*/ 
+      $('#results').html(`<h2>Events in ${city.toUpperCase()}</h2>`);
       jQuery.each( meetupData.results, function( i ) {
         $('#results').append(
           `<li><a href=" ${meetupData.results[i].event_url}"> ${meetupData.results[i].name}</a> ${meetupTime(meetupData.results[i].time)}</li>`);
