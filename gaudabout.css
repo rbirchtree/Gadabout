@@ -44,6 +44,7 @@ h2{
 
 li{
   list-style: none;
+  word-wrap: break-word;
 }
 
 form{
@@ -94,7 +95,7 @@ img{
   float: right;
   border-radius: 5px;
   font-size:.8em;
-  word-wrap: break-word;
+  word-wrap: normal;
 }
 
 
@@ -113,12 +114,6 @@ input{
   margin: 3px;
 }
 
-/*
-at results greater than x results = 90% width
-moved travel city to top right
-overflow text
-push elements down?
-*/
 
 @media only screen and (max-width: 640px){
   #travelCityWeather{
@@ -138,6 +133,10 @@ push elements down?
   .submitbtn{
     display: block;
     margin: auto;
+  }
+
+  li{
+    word-wrap: break-word;
   }
   
   #results{
