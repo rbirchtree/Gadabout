@@ -9,6 +9,9 @@ and Denver.** The three APIs that are used are from Bing, Meetup and OpenWeather
 The primary objective of this app is to find events that relevant to the user that day. For example, soccer meetups in Austin or 
 Python meetups in Boston and the app will spout out a short list of possible meetups.
 
+The technologies used in this app are jquery, JavaScript, HTML and CSS.
+
+Mockups
 **[https://photos.app.goo.gl/0bPlRKOvENWOyKuk2]**
 
 Below is a note for third API for future reference
