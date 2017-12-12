@@ -13,18 +13,19 @@ $(function(){
     var interests = $("#usersInterest").val();
     $("#results").removeClass("hidden");
     $("#travelCityWeather").removeClass("hidden");
-     /*api meetup call  434519614563187d65466f42b4e6b74*/
      $("container").html(`<ul class="hidden" id="results"></ul>`);
 
-    callMeetUPAPI(location,interests);
     let cityForAPI = encodeURI(location);
+    callMeetUPAPI(location,interests);
+    /*replace meetupapi with bing map API*/ 
     travelCityWeatherAPICall(cityForAPI);
-    $("#usersInterest").val("")
+    
+    $("#usersInterest").val("");
     $("#city").val("");
     $("#results").empty();
   }); 
 });
-/*bing map api?*/
+
 function callMeetUPAPI(city, interests){
   latLon= {AUSTIN: ["30.307182","-97.755996"],
             BOSTON: ["42.33196","-71.020173"],
@@ -37,7 +38,9 @@ function callMeetUPAPI(city, interests){
             "COLORADO SPRINGS":["38.867255","-104.760749"],
             DENVER:["39.761849","-104.880625"]
             };
-            /* names with lat and lon get a translator*/
+            /* names with lat and lon get a translator
+          remove later
+            */
             let coords = latLon[city.toUpperCase()];
   $.ajax({
     method:'GET',
@@ -48,8 +51,7 @@ function callMeetUPAPI(city, interests){
       if(!meetupData.results) {
         $("#results").html("<p>There are no results</p>");
       } else {
-      // $("#results").html('<p><a href="'+ meetupData.results[0].event_url +'">  ' + meetupData.results[0].name + '</a></p>');
-      /*iterate through objects up to 3*/ 
+       
       $('#results').html(`<h2>Events in ${city.toUpperCase()}</h2>`);
       jQuery.each( meetupData.results, function( i ) {
         $('#results').append(
@@ -57,8 +59,6 @@ function callMeetUPAPI(city, interests){
           return (i < 6);
       });
       }
-      /*each fix results*/
-      /*' append data list previous and next tab'*/
     },
       error : function(){
         $("#results").html("<p>There is an error with the Meetup API</p>");
@@ -70,8 +70,6 @@ function travelCityWeatherAPICall(city){
     $.ajax({
       method: 'GET',
       url: `https://api.openweathermap.org/data/2.5/weather?q=${city}&mode=json&units=imperial&appid=71dd692b6e018b9ef955bdbff87a0067`,
-      // crossDomain: true,
-      // dataType: 'jsonp',
       success: function(weather_data){
         let image = weatherImages[weather_data.weather[0].description];
         $("#travelCityWeather").html(`${image}`);
@@ -87,15 +85,11 @@ function travelCityWeatherAPICall(city){
       url: `https://api.openweathermap.org/data/2.5/weather?lat=${positions[0]}&lon=${positions[1]}&mode=json&units=imperial&appid=71dd692b6e018b9ef955bdbff87a0067`,
       success: function(weather_data){
         let image = weatherImages[weather_data.weather[0].description];
-        $("#currentLocationWeather").html("<p>Current Weather Location</p>"+image);
-        
+        $("#currentLocationWeather").html("<p>Current Weather Location</p>"+image);    
 
       }
     });
-  }
- 
-
-  
+  } 
 });
 
 const weatherImages = {
