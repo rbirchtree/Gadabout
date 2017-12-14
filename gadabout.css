@@ -53,6 +53,9 @@ h2{
   background-color: rgb(255,255,255);
 }
 
+i{
+  padding-right: 2px;
+}
 li{
   list-style: none;
   word-wrap: break-word;
@@ -121,6 +124,14 @@ img{
   display: block;
 }
 
+a:hover {
+  background-color: rgb(211,211,211);
+  text-decoration: none;
+}
+a{
+  color: rgb(220,20,60);
+  text-decoration: none;
+}
 label{
   display: block;
   margin: 3px;
@@ -135,13 +146,20 @@ input{
   #travelCityWeather{
     position: absolute;
     top: 0;
-    right: 0%;
-    width: 13%;
+    right: 4%;
+    width: 17%;
     padding: 1%;
+    font-size:.8em;
     word-wrap: break-word;
     margin: 5% 2% 2% 2%;
   }
-  
+  #currentLocationWeather{
+  width: 17%;
+  }
+
+  form{
+    width: 60%;
+  }
   input{
   height: 30px;
   margin-bottom: 10px;

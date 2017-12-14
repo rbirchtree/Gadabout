@@ -8,18 +8,20 @@
     <meta name="author" content="Rob Birch">
     <title>Gadabout</title>
     <link href="gadabout.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
   <body>
   <div id="currentLocationWeather">
     Current Location's Weather
-  </div>
+  </div> 
     <div class="welcome">
       <h1>Welcome to Gadabout! <span class="subtext">  Go to Great Events on the Fly!</span></h1>
     </div>
     <form id="eventFinder">
-      <label for="usersInterest">What is interesting to you?</label>
+      <label for="usersInterest"><i class="fa fa-meetup" aria-hidden="true"></i>What is interesting to you?</label>
       <input placeholder="Programming, dancing, etc" type="text" id="usersInterest">
-      <label for="city">What city are you travelling to?</label>
+      <label for="city"><i class="fa fa-plane" aria-hidden="true"></i>What city are you travelling to?</label>
       <input placeholder="Boston, Denver, Austin" type="text" id="city">
       <input class="submitbtn" type="submit">
     </form>

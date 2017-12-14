@@ -51,12 +51,13 @@ function callMeetUPAPI(city, interests){
       if(!meetupData.results) {
         $("#results").html("<p>There are no results</p>");
       } else {
-       
+/*       
+*/
       $('#results').html(`<h2>Events in ${city.toUpperCase()}</h2>`);
       jQuery.each( meetupData.results, function( i ) {
         $('#results').append(
 
-          `<li><a href=" ${meetupData.results[i].event_url}"> ${meetupData.results[i].name}</a> ${moment(meetupData.results[i].time)}</li>`);
+          `<li><a href=" ${meetupData.results[i].event_url}"> ${meetupData.results[i].name}</a> ${moment.unix(meetupData.results[i].time).format('hh:mm a')}</li>`);
         /*used meetup time function*/
         /*https://stackoverflow.com/questions/26392280/using-momentjs-to-convert-date-to-epoch-then-back-to-date*/
           return (i < 6);
@@ -79,7 +80,7 @@ function travelCityWeatherAPICall(city){
         console.log(image)
         image === undefined ? image = "<img src='https://img.buzzfeed.com/buzzfeed-static/static/2015-04/22/12/enhanced/webdr12/enhanced-buzz-4479-1429721520-8.jpg'/>" : image;
         $("#travelCityWeather").html(`${image}`);
-        $('#travelCityWeather').find('img').before(`<p>${decodeURI(city).toUpperCase()}'s  Weather</p>`);
+        $('#travelCityWeather').find('img').before(`<p>Weather in ${decodeURI(city).toUpperCase()}</p>`);
       }
     });
   }
