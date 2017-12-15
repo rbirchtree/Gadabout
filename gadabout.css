@@ -150,7 +150,7 @@ input{
     width: 17%;
     padding: 1%;
     font-size:.8em;
-    word-wrap: break-word;
+    word-wrap: normal;
     margin: 5% 2% 2% 2%;
   }
   #currentLocationWeather{
