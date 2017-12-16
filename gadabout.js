@@ -100,7 +100,7 @@ function travelCityWeatherAPICall(city){
 });
 
 const weatherImages = {
-      "clear sky": "<img src='http://basictextures.com/wp-content/free-textures/2010/12/sky-clouds-blue-00172-150x150.jpg'/>",
+      "clear sky": "<img src='cloudsblue.jpg'/>",
       "rain": "<img src='http://www.nature.com/news/2002/020912/images/rain_160.jp'/>g",
       "sunny": "<img src='http://www.nelsoncountylife.com/weather_icons/day/sunny.jpg'/>",
       "snow":"<img src='http://png.clipart.me/graphics/thumbs/160/snowflakes-winter-frosty-snow-background_160742723.jpg'/>",
