@@ -6,9 +6,8 @@ $(function(){
    /*https://maps.googleapis.com/maps/api/geocode/json?address=paris&tx&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4*/
    /*pass data into currentCityWeatherAPICall*/
    /*https://maps.googleapis.com/maps/api/geocode/json?address=1309nightingaleaustintx&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4*/
-   let travelCityPostions;
-   let currentCity;
-   googleLookupLatLon(cityPositions);
+   var currentCity;
+   var coords
    currentCityWeatherAPICall(cityPositions);
    
    
@@ -44,9 +43,9 @@ function callMeetUPAPI(city, interests){
             DENVER:["39.761849","-104.880625"]
             };*/
  /*run google function here and return coordinates*/
- googleLookupCityForLatLon(city)
+ googleLookupCityForLatLon(city);
             /*let coords = latLon[city.toUpperCase()];*/
-            let coords = travelCityPostions
+            
   $.ajax({
     method:'GET',
     crossDomain: true,
@@ -90,37 +89,29 @@ function travelCityWeatherAPICall(city){
   }
   
   function currentCityWeatherAPICall(positions){
-    
     $.ajax({
       method: 'GET',
       url: `https://api.openweathermap.org/data/2.5/weather?lat=${positions[0]}&lon=${positions[1]}&mode=json&units=imperial&appid=71dd692b6e018b9ef955bdbff87a0067`,
       success: function(weather_data){
         let image = weatherImages[weather_data.weather[0].description];
         image === undefined ? image = "<img src='https://img.buzzfeed.com/buzzfeed-static/static/2015-04/22/12/enhanced/webdr12/enhanced-buzz-4479-1429721520-8.jpg'/>" : image;
-        $("#currentLocationWeather").html(`<p> ${currentCity}'s Weather </p>`+image);    
+        $("#currentLocationWeather").html(`<p> Current Location's Weather </p>`+image);    
 
       }
     });
   } 
-    function googleLookupLatLon(latlon){
-   		$.ajax({
-   			method: 'GET',
-   			url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latlon[0]},${latlon[1]}&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4`,
-   			success: function (mapData){
-				 currentCity = mapData.results["0"].address_components[3].short_name;
-				/*append to reuslts*/
-   			}
-   		});
-   }
    	function googleLookupCityForLatLon(city){
+   		console.log(city)
    		$.ajax({
    			method: 'GET',
    			url: `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4`,
    			success: function (mapData){
-				 travelCityPostions = [mapData.results["0"].geometry.location.lat, mapData.results["0"].geometry.location.lng]
-				return travelCityPostions
+				 coords = [mapData.results["0"].geometry.location.lat, mapData.results["0"].geometry.location.lng];
+				 console.log(coords)
+				return coords;
 				/*append to reuslts*/
-   			}
+   			},
+   			async: false
    		});
    }
 
