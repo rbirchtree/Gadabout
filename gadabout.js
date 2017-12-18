@@ -101,13 +101,11 @@ function travelCityWeatherAPICall(city){
     });
   } 
    	function googleLookupCityForLatLon(city){
-   		console.log(city)
    		$.ajax({
    			method: 'GET',
    			url: `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4`,
    			success: function (mapData){
 				 coords = [mapData.results["0"].geometry.location.lat, mapData.results["0"].geometry.location.lng];
-				 console.log(coords)
 				return coords;
 				/*append to reuslts*/
    			},
