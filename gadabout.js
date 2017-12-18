@@ -58,7 +58,7 @@ function callMeetUPAPI(city, interests){
       $('#results').html(`<h2>Events in ${city.toUpperCase()}</h2>`);
       jQuery.each( meetupData.results, function( i ) {
         $('#results').append(
-          `<li><a href=" ${meetupData.results[i].event_url}"> ${meetupData.results[i].name}</a> ${moment(meetupData.results[i].time).local().add(1,'hour').format('MMM DD hh:mm:ss A')}</li>`);
+          `<li><a href=" ${meetupData.results[i].event_url}"> ${meetupData.results[i].name}</a> ${moment(meetupData.results[i].time).add(1,'hour').local().format('MMM DD hh:mm:ss A')}</li>`);
         /*https://stackoverflow.com/questions/26392280/using-momentjs-to-convert-date-to-epoch-then-back-to-date*/
         /*${moment.unix(meetupData.results[i].time).format('hh:mm a')*/
         /*AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4 google api key*/
