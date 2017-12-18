@@ -6,9 +6,9 @@ $(function(){
    /*https://maps.googleapis.com/maps/api/geocode/json?address=paris&tx&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4*/
    /*pass data into currentCityWeatherAPICall*/
    /*https://maps.googleapis.com/maps/api/geocode/json?address=1309nightingaleaustintx&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4*/
-   let travelCityPostions
-   let currentCity
-   googleLookupLatLon(cityPositions)
+   let travelCityPostions;
+   let currentCity;
+   googleLookupLatLon(cityPositions);
    currentCityWeatherAPICall(cityPositions);
    
    
@@ -23,8 +23,7 @@ $(function(){
     let cityForAPI = encodeURI(location);
     googleLookupCityForLatLon(cityForAPI)
     callMeetUPAPI(location,interests);
-    /*replace meetupapi with google map API return lat and lon to meetup api*/ 
-    travelCityWeatherAPICall(cityForAPI);
+	travelCityWeatherAPICall(cityForAPI);
     
     $("#usersInterest").val("");
     $("#city").val("");
@@ -52,7 +51,7 @@ function callMeetUPAPI(city, interests){
     method:'GET',
     crossDomain: true,
     dataType: 'jsonp',
-    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${interests}&lon=${coords[1]}&radius=30&page=3&key=434519614563187d65466f42b4e6b74`,
+    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${encodeURI(interests)}&lon=${coords[1]}&radius=30&page=3&key=434519614563187d65466f42b4e6b74`,
     success: function(meetupData){
       if(meetupData.meta.count===0) {
         $("#results").html("<h2>There are no results for that in this town.</h2>");
@@ -108,7 +107,7 @@ function travelCityWeatherAPICall(city){
    			method: 'GET',
    			url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latlon[0]},${latlon[1]}&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4`,
    			success: function (mapData){
-				return currentCity = mapData.results["0"].address_components[3].short_name;
+				 currentCity = mapData.results["0"].address_components[3].short_name;
 				/*append to reuslts*/
    			}
    		});
