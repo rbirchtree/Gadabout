@@ -3,7 +3,6 @@ $(function(){
   let cityPositions;
   navigator.geolocation.getCurrentPosition(function(position){
    cityPositions = [position.coords.latitude, position.coords.longitude];
-   /*https://maps.googleapis.com/maps/api/geocode/json?address=paris&tx&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4*/
    /*pass data into currentCityWeatherAPICall*/
    /*https://maps.googleapis.com/maps/api/geocode/json?address=1309nightingaleaustintx&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4*/
    var currentCity;
@@ -13,9 +12,9 @@ $(function(){
    
   $("#eventFinder").submit(event => {
     event.preventDefault();
-    var location = $("#city").val();' replace spaces with forms'
+    var location = $("#city").val();' replace spaces with forms use a better name for location variable, test city and state combos'
     var interests = $("#usersInterest").val();
-    $("#results").removeClass("hidden");
+    $("#results").removeClass("hidden"); 'user results for a variable'
     $("#travelCityWeather").removeClass("hidden");
      $("container").html(`<ul class="hidden" id="results"></ul>`);
 
@@ -31,17 +30,7 @@ $(function(){
 });
 
 function callMeetUPAPI(city, interests){
-  /*latLon= {AUSTIN: ["30.307182","-97.755996"],
-            BOSTON: ["42.33196","-71.020173"],
-            MIAMI:["25.775163","-80.208615"],
-            "LOS ANGELES":["34.0522","-118.2437"],
-            DALLAS:["32.794176","-96.765503"],
-            HOUSTON:["29.780472","-95.386342"],
-            "SAN FRANCISCO":["37.727239","-123.032229"],
-            "SAN JOSE":["37.296867","-121.819306"],
-            "COLORADO SPRINGS":["38.867255","-104.760749"],
-            DENVER:["39.761849","-104.880625"]
-            };*/
+  
  /*run google function here and return coordinates*/
  googleLookupCityForLatLon(city);
             /*let coords = latLon[city.toUpperCase()];*/
@@ -50,7 +39,7 @@ function callMeetUPAPI(city, interests){
     method:'GET',
     crossDomain: true,
     dataType: 'jsonp',
-    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${encodeURI(interests)}&lon=${coords[1]}&radius=30&page=3&key=434519614563187d65466f42b4e6b74`,
+    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${coords[0]}&topic=${encodeURI(interests)}&lon=${coords[1]}&radius=40&page=3&key=434519614563187d65466f42b4e6b74`,
     success: function(meetupData){
       if(meetupData.meta.count===0) {
         $("#results").html("<h2>There are no results for that in this town.</h2>");
@@ -108,6 +97,7 @@ function travelCityWeatherAPICall(city){
 				 coords = [mapData.results["0"].geometry.location.lat, mapData.results["0"].geometry.location.lng];
 				return coords;
 				/*append to reuslts*/
+				'have coords and user interest be passed into google look up for the city in meet-up api, turn async back to true'
    			},
    			async: false
    		});
