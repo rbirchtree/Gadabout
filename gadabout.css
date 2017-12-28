@@ -152,7 +152,7 @@ input{
     position: absolute;
     top: 0;
     right: 4%;
-    width: 18%;
+    width: 19%;
     padding: 1%;
     word-wrap: normal;
     margin: 5% 2% 2% 2%;
@@ -162,7 +162,7 @@ input{
     font-size: .65em;
   }
   #currentLocationWeather{
-  width: 18%;
+  width: 19%;
   }
 
   form{
