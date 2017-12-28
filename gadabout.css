@@ -151,7 +151,7 @@ input{
   #travelCityWeather{
     position: absolute;
     top: 0%;
-    right: 7%;
+    right: 4%;
     width: 19%;
     padding: 1%;
     word-wrap: normal;
@@ -172,7 +172,8 @@ input{
   }
 
   form{
-    width: 60%;
+    width: 50%;
+    height: 50%;
   }
 
   input{
@@ -181,7 +182,8 @@ input{
   margin-bottom: 10px;
   }
   .welcome{
-    width: 40%;
+    width: 50%;
+    margin: auto;
   }
   .submitbtn{
     display: block;
