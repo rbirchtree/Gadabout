@@ -161,6 +161,12 @@ input{
   h2{
     font-size: .65em;
   }
+  h1{
+    font-size: 1em;
+  }
+  .subtext{
+    font-size: .5em;
+  }
   #currentLocationWeather{
   width: 19%;
   }
@@ -173,6 +179,9 @@ input{
   height: 30px;
   width: 70%;
   margin-bottom: 10px;
+  }
+  .welcome{
+    width: 40%;
   }
   .submitbtn{
     display: block;
