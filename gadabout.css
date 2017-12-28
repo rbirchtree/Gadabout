@@ -158,7 +158,9 @@ input{
     word-wrap: normal;
     margin: 5% 2% 2% 2%;
   }
-
+  h2{
+    font-size: 1em;
+  }
   #currentLocationWeather{
   width: 17%;
   }
