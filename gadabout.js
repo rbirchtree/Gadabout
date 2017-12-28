@@ -49,14 +49,10 @@ function googleLookupCityForLatLon(travelCity,userInterest){
    			method: 'GET',
    			url: `https://maps.googleapis.com/maps/api/geocode/json?address=${travelCity}&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4`,
    			success: function (mapData){
-          try{
 				 let travelCityGeoCodes = [mapData.results["0"].geometry.location.lat, mapData.results["0"].geometry.location.lng];
 				 /*return travel city name*/
 				 userTravelCity = mapData.results["0"].address_components["0"].long_name				
 				 callMeetUPAPI(travelCityGeoCodes, userInterest);
-          } catch {
-            $("#results").html("<p>Please enter a valid location.</p>");
-          }
 
    			},
    			/*add error handaling here*/
