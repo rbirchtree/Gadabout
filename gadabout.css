@@ -154,12 +154,12 @@ input{
     right: 4%;
     width: 18%;
     padding: 1%;
-    font-size:.8em;
     word-wrap: normal;
     margin: 5% 2% 2% 2%;
   }
+  
   h2{
-    font-size: .8em;
+    font-size: .7em;
   }
   #currentLocationWeather{
   width: 18%;
