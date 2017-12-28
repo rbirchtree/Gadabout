@@ -61,7 +61,12 @@ function googleLookupCityForLatLon(travelCity,userInterest){
    			},
         complete: function(){
           $("#results").html("<p>Please enter a valid location or interest.</p>")
-        }
+        },
+        statusCode: {
+            404: function() {
+      $( "#results" ).html("<p>Please enter a valid location.");
+    }
+  }
    		});
    }
 
