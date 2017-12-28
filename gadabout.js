@@ -58,7 +58,10 @@ function googleLookupCityForLatLon(travelCity,userInterest){
    			/*add error handaling here*/
    			error: function(){
    				$("#results").html("<p>Please enter a valid location.</p>");
-   			}
+   			},
+        complete: function(){
+          $("#results").html("<p>Please enter a valid location or interest.</p>")
+        }
    		});
    }
 
