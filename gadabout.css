@@ -150,12 +150,12 @@ input{
 @media only screen and (max-width: 640px){
   #travelCityWeather{
     position: absolute;
-    top: 0;
+    top: 0%;
     right: 2%;
     width: 19%;
     padding: 1%;
     word-wrap: normal;
-    margin: 5% 3% 2% 2%;
+    margin: 5% 2% 2% 2%;
   }
 
   h2{
