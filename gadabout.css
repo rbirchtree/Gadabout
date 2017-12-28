@@ -152,17 +152,17 @@ input{
     position: absolute;
     top: 0;
     right: 4%;
-    width: 17%;
+    width: 18%;
     padding: 1%;
     font-size:.8em;
     word-wrap: normal;
     margin: 5% 2% 2% 2%;
   }
   h2{
-    font-size: 1em;
+    font-size: .8em;
   }
   #currentLocationWeather{
-  width: 17%;
+  width: 18%;
   }
 
   form{
