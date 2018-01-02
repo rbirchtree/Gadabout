@@ -24,7 +24,7 @@ function GeoCodeToCityLookup(geocodes){
 		url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${geocodes[0]},${geocodes[1]}&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4`,
 		success: function(data){
 			/*return city geococe later tonight*/
-			var userCity = data.results[3].address_components["0"].long_name;
+			var userCity = data.results[1].address_components[1].long_name
 			$("#currentLocationWeather").html(`<h2>${userCity}'s Weather</h2>`)
 			currentCityWeatherAPICall(geocodes);
 
