@@ -88,7 +88,7 @@ form{
   width:12%;
   float:left;
   border-radius: 5px;
-  font-size:.8em;
+  font-size:1em;
   word-wrap: normal;
   background-color: rgb(255,255,255);
 }
@@ -111,7 +111,7 @@ img{
   width:12%;
   float: right;
   border-radius: 5px;
-  font-size:.8em;
+  font-size:1em;
   word-wrap: normal;
   background-color: rgb(255,255,255);
 }
