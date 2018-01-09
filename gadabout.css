@@ -23,7 +23,7 @@ h2{
 .subtext {
   color: rgb(255,140,0);
   display: inline-block;
-  font-size: .9em;
+  font-size: 1em;
   text-shadow: 1px 1px rgb(0,0,0);
 }
 
@@ -159,10 +159,10 @@ input{
     font-size: .8em;
   }
   h1{
-    font-size: 1em;
+    font-size: 1.5em;
   }
   .subtext{
-    font-size: .8em;
+    font-size: .9em;
   }
   #currentLocationWeather{
     margin: 2% 2% 2% 5%;
