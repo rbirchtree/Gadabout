@@ -1,0 +1,34 @@
+.parent{
+	display:flex;
+	justify-content: space-between;
+	flex-direction: column;
+
+}
+
+.item-weather{
+	width: 15%;	
+}
+
+.item-welcome{
+	width: 40%;
+	margin: 20px auto;; 
+}
+
+.item-main{
+	width:40%;
+	margin: 20px auto;
+}
+
+.item-main:nth-child(2){
+	width:30%;
+	margin: 20px auto;
+	justify-content: center;
+}
+
+.item-main:nth-child(3){
+	width:60%;
+	margin: 20px auto;
+	justify-content: space-around;
+	padding:10px;
+}
+

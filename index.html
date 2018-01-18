@@ -7,40 +7,51 @@
     <meta name="keywords" contents="events,music,meet-up,game">
     <meta name="author" content="Rob Birch">
     <title>Gadabout</title>
-    <link href="gadabout.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="gadabout.css" rel="stylesheet" type="text/css" />
+    <link href="float-grid.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/moment@2.19.4/moment.min.js"></script>
     <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
+ <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112666416-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-112666416-1');
+  </script>
+
+
     
     
   </head>
   <body>
-  <div id="currentLocationWeather">
-    Current Location's Weather
-  </div> 
+    <div class="parent">
+        <div class="item-welcome welcome">
+          <h1>Welcome to Gadabout! <span class="subtext">  Go to Great Events on the Fly!</span></h1>
+        </div>
+    
 
-    <div class="welcome">
-      <h1>Welcome to Gadabout! <span class="subtext">  Go to Great Events on the Fly!</span></h1>
-    </div>
-    <form id="eventFinder">
-      <label for="userInterest"><i class="fa fa-meetup" aria-hidden="true"></i>What is interesting to you?</label>
-      <input placeholder="Python..." type="text" id="userInterest">
-      <label for="city"><i class="fa fa-plane" aria-hidden="true"></i>What city are you travelling to?</label>
-      <input placeholder="Boston..." type="text" id="city">
-      <input class="submitbtn" type="submit">
-    </form>
+      <form class ="item-main" id="eventFinder">
+        <label for="userInterest"><i class="fa fa-meetup" aria-hidden="true"></i>What is interesting to you?</label>
+        <input placeholder="Python..." type="text" id="userInterest">
+        <label for="city"><i class="fa fa-plane" aria-hidden="true"></i>What city are you travelling to?</label>
+        <input placeholder="Boston..." type="text" id="city">
+        <input class="submitbtn" type="submit">
+      </form>
 
-  <div class="hidden" id="travelCityWeather">
-  </div>
   
-  <main class="container">
-      <ul class="hidden" id="results">
-      </ul>
-  </main>
-
-  <script src="gadabout.js"></script> 
+  
+    <main class ="item-main" role="main">
+        <ul class="hidden" id="results">
+        </ul>
+    </main>
+  </div>
+    <script src="gadabout.js"></script> 
   </body>
 </html>
