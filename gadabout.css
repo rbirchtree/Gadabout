@@ -10,11 +10,6 @@
   opacity: 0.9;
 }
 
-img{
-  width: 40%;
-  height:40%;
-  border-radius: 5px;
-}
 
 .welcome{
   text-align: center;
@@ -36,6 +31,9 @@ h2{
 }
 h1{
   font-size: 1.4em;
+}
+.fa{
+  padding-right: 5px;
 }
 
 body{
@@ -65,10 +63,9 @@ form{
 .hidden {
   display: none !important;
 }
-ul{
-  list-style-type: circle;
-  padding-right: 5px;
-}
+
+
+li::before {content: "•"; color: black}
 
 #results{
   border: black solid 2px;
@@ -77,6 +74,11 @@ ul{
   border-radius: 5px;
   filter: alpha(opacity=50);
   opacity: 0.9;
+}
+
+ul{
+  padding-right: 5px;
+  list-style: none;
 }
 
 label{
@@ -98,9 +100,6 @@ a{
 } 
 
 @media only screen and (max-width: 980px){
-  ul{
-    list-style-type:none;
-  }
   input{
     width: 100px;
   }
