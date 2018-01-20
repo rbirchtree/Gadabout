@@ -23,6 +23,7 @@
 .submitbtn{
     display: block;
     margin: 5px auto;
+    border-radius: 5px;
   }
 
 h2{
@@ -40,6 +41,7 @@ body{
   background-image: url('Images/gadabout-background.png');
   background-repeat: no-repeat;
   background-position: center;
+  background-color: black;
 }
 
 .subtext {
@@ -88,6 +90,7 @@ label{
 input{
   margin: 5px 5px;
   width: 100px;
+  border-radius: 5px;
 }
 
  a:hover {
