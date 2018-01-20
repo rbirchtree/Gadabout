@@ -11,6 +11,10 @@
 }
 
 
+img{
+  display: inline-block;
+}
+
 .welcome{
   text-align: center;
   filter: alpha(opacity=50);
