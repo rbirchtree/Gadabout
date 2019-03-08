@@ -1,9 +1,4 @@
 $(function(){
-/*	navigator.geolocation.getCurrentPosition(function(position) {
-  		var userGeoCodes = [position.coords.latitude, position.coords.longitude];
-  		GeoCodeToCityLookup(userGeoCodes);	
-      renable later
-	/*});*/
 	});
 	$("#eventFinder").submit(event => {
 		event.preventDefault();
@@ -24,27 +19,16 @@ function GeoCodeToCityLookup(geocodes){
 		method: 'GET',
 		url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${geocodes[0]},${geocodes[1]}&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4`,
 		success: function(data){
-			var userCity = data.results[1].address_components[1].long_name
-			/*$("#currentLocationWeather").html(`<h2>${userCity}'s Weather</h2>`)
-			currentCityWeatherAPICall(geocodes); enable later*/
+
+			var userCity = data.results[1].address_components[1].long_name;
+      
 
         }
 });
 }
 
-  function currentCityWeatherAPICall(geocodes){
-    $.ajax({
-      method: 'GET',
-      url: `https://api.openweathermap.org/data/2.5/weather?lat=${geocodes[0]}&lon=${geocodes[1]}&mode=json&units=imperial&appid=71dd692b6e018b9ef955bdbff87a0067`,
-      success: function(weather_data){
-        let weatherImage = weatherImages[weather_data.weather[0].description];
-        weatherImage === undefined ? weatherImage = "<img src='Images/overcast.png'/>" : weatherImage;
-        $("#currentLocationWeather").append(weatherImage);    
-      }
-    });
-  } 
-
 function googleLookupCityForLatLon(travelCity,userInterest){
+  console.log('travel city',travelCity)
    		$.ajax({
    			method: 'GET',
    			url: `https://maps.googleapis.com/maps/api/geocode/json?address=${travelCity}&key=AIzaSyAXjEyA_kfZE3rPEHYM6B1j1yJTZwehan4`,
@@ -52,7 +36,7 @@ function googleLookupCityForLatLon(travelCity,userInterest){
           if (mapData.status!="ZERO_RESULTS"){
 				 let travelCityGeoCodes = [mapData.results["0"].geometry.location.lat, mapData.results["0"].geometry.location.lng];
 				 /*return travel city name map data zero results error handaling code from here when using xkcd city*/
-				 
+				 console.log('what travelCityGeoCodes',travelCityGeoCodes)
 				 userTravelCity = mapData.results["0"].address_components["0"].long_name				
 				 callMeetUPAPI(travelCityGeoCodes, userInterest);
           } else{
@@ -72,7 +56,7 @@ function googleLookupCityForLatLon(travelCity,userInterest){
    		});
    }
 
-function travelCityWeatherAPICall(city){
+/*function travelCityWeatherAPICall(city){
     $.ajax({
       method: 'GET',
       url: `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(city)}&mode=json&units=imperial&appid=71dd692b6e018b9ef955bdbff87a0067`,
@@ -85,7 +69,7 @@ function travelCityWeatherAPICall(city){
 
       }
     });
-  }
+  }*/
 
 
 function callMeetUPAPI(geocodes, interests){
