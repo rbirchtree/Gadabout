@@ -50,8 +50,8 @@ function callMeetUPAPI(geocodes, interests){
   $.ajax({
     method:'GET',
     crossDomain: true,
-    dataType: 'jsonp',//4=2
-    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${geocodes[0]}&topic=${encodeURI(interests)}&lon=${geocodes[1]}&radius=70&page=15&key=434519614563187d65466f42b4e6b74`,
+    dataType: 'jsonp',
+    url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${geocodes[0]}&topic=${encodeURI(interests)}&lon=${geocodes[1]}&radius=70&page=20&key=434519614563187d65466f42b4e6b74`,
     success: function(meetupData){
       console.log('meetup data',meetupData.code)
       if (meetupData.code === 'badtopic'){
@@ -65,7 +65,7 @@ function callMeetUPAPI(geocodes, interests){
       $('#results').html(`<h2>Events in ${userTravelCity}</h2>`);
       jQuery.each( meetupData.results, function( i ) {
         $('#results').append(`<li><a href=' ${meetupData.results[i].event_url}'> ${meetupData.results[i].name}</a> ${moment(meetupData.results[i].time).add(1,'hour').local().format('MMM DD hh:mm a')}</li>`);
-          return (i < 10);
+          return (i <= 20);
           }
         );
       }
