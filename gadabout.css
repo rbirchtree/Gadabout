@@ -32,6 +32,9 @@ img{
     display: block;
     margin: 5px auto;
     border-radius: 5px;
+    border: solid 1px transparent;
+    padding: .5em 1em;
+    text-decoration: none;
   }
 
 h2{
@@ -53,10 +56,9 @@ body{
 }
 
 .subtext {
-  color: rgb(173,216,230);
   display: block;
   font-size: 1em;
-  text-shadow: 1px 1px rgb(0,0,0);
+  text-shadow: 2px 2px rgb(173,216,230);
 }
 
 form{
@@ -99,6 +101,7 @@ input{
   margin: 5px 5px;
   width: 100px;
   border-radius: 5px;
+  font-family: "Times New Roman", Times, serif;
 }
 
  a:hover {

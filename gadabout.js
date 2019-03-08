@@ -45,7 +45,7 @@ function googleLookupCityForLatLon(travelCity,userInterest){
    			},
    			/*add error handaling here*/
    			error: function(){
-   				$("#results").html("<p>PThere has been an error.</p>");
+   				$("#results").html("<p>There has been an error.</p>");
    			},
 
         statusCode: {
