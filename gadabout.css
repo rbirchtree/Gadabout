@@ -45,9 +45,11 @@ h2{
   font-size: 1.35em;
   text-align: center;
 }
+
 h1{
   font-size: 1.4em;
 }
+
 .fa{
   padding-right: 5px;
 }
@@ -112,6 +114,7 @@ input{
   background-color: rgb(240,248,255);
   text-decoration: none;
 }
+
 a{
   color: rgb(0,0,128);
   text-decoration: none;
