@@ -64,7 +64,7 @@ function callMeetUPAPI(geocodes, interests){
       } else {
       $('#results').html(`<h2>Events in ${userTravelCity}</h2>`);
       jQuery.each( meetupData.results, function( i ) {
-        $('#results').append(`<li><a href=' ${meetupData.results[i].event_url}'> ${meetupData.results[i].name}</a> ${moment(meetupData.results[i].time).add(1,'hour').local().format('MMM DD hh:mm a')}</li>`);
+        $('#results').append(`<li><a class='li-event' href=' ${meetupData.results[i].event_url}'> ${meetupData.results[i].name}</a> <span class='li-date'>${moment(meetupData.results[i].time).add(1,'hour').local().format('MMM DD hh:mm a')}</span></li>`);
           return (i <= 20);
           }
         );
