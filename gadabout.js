@@ -53,7 +53,6 @@ function callMeetUPAPI(geocodes, interests){
     dataType: 'jsonp',
     url: `https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=${geocodes[0]}&topic=${encodeURI(interests)}&lon=${geocodes[1]}&radius=70&page=20&key=434519614563187d65466f42b4e6b74`,
     success: function(meetupData){
-      console.log('meetup data',meetupData.code)
       if (meetupData.code === 'badtopic'){
         $('#results').html(`<h2>Try searching for events like ${interests} with a common word to describe it...i.e. python for data science.</h2>`);
       }

@@ -53,6 +53,7 @@ h2{
 .li-event{
   float:left;
 }
+
 h1{
   font-size: 1.4em;
 }
@@ -61,7 +62,7 @@ h1{
   padding-right: 5px;
 }
 
-body{
+html{
   background-image: url('Images/gadabout-background.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -99,6 +100,7 @@ li::before {content: "•"; color: black}
   border-radius: 5px;
   filter: alpha(opacity=50);
   opacity: 0.9;
+  overflow: hidden;
 }
 
 ul{
@@ -136,5 +138,10 @@ a{
   }
   h1{
     font-size: 1.5em;
+  }
+  .item-main:nth-child(2){
+  width:40%;
+  margin: 20px auto;
+  justify-content: center;
   }
 }

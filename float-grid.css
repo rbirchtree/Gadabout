@@ -4,12 +4,10 @@
 	flex-direction: column;
 }
 
-.item-weather{
-	width: 15%;	
-}
+
 
 .item-welcome{
-	width: 40%;
+	width: 30%;
 	margin: 20px auto;; 
 }
 
